@@ -3,7 +3,7 @@ PYTHON_REPLACEMENTS = {
     r'rospy.Publisher\(([^\,]+), ([^\)]+)\)': 'self.create_publisher($1, $0)',
     r'rospy.Subscriber\(([^\,]+), ([^\,]+), ([^\)]+)\)': 'self.create_subscription($1, $0, $2)',
     r'rospy.Service\(([^\,]+), ([^\,]+), ([^\)]+)\)': 'self.create_service($1, $0, $2)',
-    r'\n(\s+)rospy.get_parameter\(([^\,]+), ([^\)]+)\)': 'self.declare_parameter($1, $2)\n$0self.$1 = self.get_parameter($1).value',
+    r'\n(\s+)rospy.get_param\(([^\,]+), ([^\)]+)\)': '\n$0self.declare_parameter($1, $2)\n$0self.$1 = self.get_parameter($1).value',
 }
 
 
