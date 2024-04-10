@@ -3,8 +3,8 @@ PYTHON_REPLACEMENTS = {
     r'rospy.Publisher\(([^\,]+), ([^\)]+)\)': 'self.create_publisher($1, $0)',
     r'rospy.Subscriber\(([^\,]+), ([^\,]+), ([^\)]+)\)': 'self.create_subscription($1, $0, $2)',
     r'rospy.Service\(([^\,]+), ([^\,]+), ([^\)]+)\)': 'self.create_service($1, $0, $2)',
-    r'\n(\s+)([^\s]+)[\ \t]*=[\ \t]*rospy\.get_param\(([^\,\n]+),[\ \t]*([^\s]+)\)': '\n$0$1 = self.declare_parameter($2, $3)',
-    r'\n(\s+)([^\s]+)[\ \t]*=[\ \t]*rospy\.get_param\(([^\,\n]+)\)': '\n$0$1 = self.declare_parameter($2, rclpy.Parameter.Type.DOUBLE)',
+    r'\n(\s+)([^\s]+)[\ \t]*=[\ \t]*rospy\.get_param\(([^\,\n]+),[\ \t]*([^\s]+)\)': '\n$0$1 = self.declare_parameter($2, $3).value',
+    r'\n(\s+)([^\s]+)[\ \t]*=[\ \t]*rospy\.get_param\(([^\,\n]+)\)': '\n$0$1 = self.declare_parameter($2, rclpy.Parameter.Type.DOUBLE).value',
 }
 
 
