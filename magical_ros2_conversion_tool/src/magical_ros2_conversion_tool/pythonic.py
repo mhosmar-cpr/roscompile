@@ -12,8 +12,8 @@ PYTHON_REPLACEMENTS = {
     r'rospy\.logfatal\(([^\s]+)\)': 'self.get_logger().fatal($0)',
     r'rospy\.Duration\(([^\s]+)\)': 'rclpy.duration.Duration($0)',
     r'rospy\.Time\.now\(\)': 'self.get_clock().now()',
-    r'rospy\.is_shutdown\(\)': '\n$0rclpy.ok()',
-    r'rospy\.Rate\(([^\s]+)\)': '\n$0self.create_rate($0)',
+    r'rospy\.is_shutdown\(\)': 'rclpy.ok()',
+    r'rospy\.Rate\(([^\s]+)\)': 'self.create_rate($0)',
 }
 
 
