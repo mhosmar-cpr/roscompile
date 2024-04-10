@@ -111,7 +111,8 @@ class PackageXML:
             self._build_type = list(build_types)[0]
             return self._build_type
         elif not build_types:
-            raise RuntimeError('Unable to determine buildtool type in {}'.format(self.fn))
+            self._build_type = 'catkin'
+            # raise RuntimeError('Unable to determine buildtool type in {}'.format(self.fn))
         else:
             raise RuntimeError('Too many valid buildtool types')
 
