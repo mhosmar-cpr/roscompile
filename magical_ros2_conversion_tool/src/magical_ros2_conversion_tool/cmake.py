@@ -138,7 +138,7 @@ def update_tests(package):
 
 
 def update_cmake(package):
-    package.cmake.upgrade_minimum_version((3, 5))
+    package.cmake.upgrade_minimum_version((3, 8))
     split_find_package_commands(package.cmake)
     catkin_to_ament_package(package)
     update_installation_variables(package.cmake)

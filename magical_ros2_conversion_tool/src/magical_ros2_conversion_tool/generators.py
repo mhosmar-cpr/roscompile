@@ -31,9 +31,9 @@ def update_generators(package):
         package.manifest.upgrade(3)
     package.manifest.insert_new_packages('member_of_group', ['rosidl_interface_packages'])
 
-    # Enabling C++14
+    # Enabling C++17
     cxx_name = 'CMAKE_CXX_STANDARD'
-    cxx_value = '14'
+    cxx_value = '17'
     if cxx_name in package.cmake.variables:
         for cmd in package.cmake.content_map['set']:
             tokens = cmd.get_tokens(include_name=True)
@@ -42,7 +42,7 @@ def update_generators(package):
                 cmd.changed = True
     else:
         set_cmd = Command('set')
-        set_cmd.add_section(cxx_name, cxx_value)
+        set_cmd.add_section(cxx_name, [cxx_value])
         package.cmake.add_command(set_cmd)
 
     # Other msg operations
